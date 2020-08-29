@@ -6,6 +6,11 @@ var RoomsView = {
   initialize: function() {
   },
 
+  renderRoom: function(room) {
+    $('select').addClass('roomMenu');
+    RoomsView.$select.append(room);
+  },
+
   render: function() {
   }
 

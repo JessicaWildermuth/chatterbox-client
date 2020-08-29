@@ -1,3 +1,5 @@
+// CONTROLLER : LOGIC Happens
+
 var MessagesView = {
 
   $chats: $('#chats'),
@@ -5,7 +7,15 @@ var MessagesView = {
   initialize: function() {
   },
 
+  renderMessage: function(message) {
+    console.log(message);
+    MessagesView.$chats.append('<div></div>');
+    MessagesView.$chats.append(message.username);
+    MessagesView.$chats.append(message.username);
+  },
+
   render: function() {
+
   }
 
 };
