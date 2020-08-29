@@ -22,6 +22,7 @@ var App = {
       console.log(data.results);
       //take data results array  and filter out any messageobj that do not contain a message
       var filteredMessages = data.results.filter(messageObj => messageObj.text);
+
       filteredMessages.forEach(x => { MessagesView.renderMessage(x); });
       // examine the response from the server request:
       //check if data.results for a roomname (does it have one)
