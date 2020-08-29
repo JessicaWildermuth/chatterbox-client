@@ -13,6 +13,7 @@ var FormView = {
     //on click - add the input to messages
     //use post method from parse to send the message to the server
     var textInput = document.getElementById('message').value;
+    // textInput.innerText;
     var message = {username: 'Billessie', text: textInput};
     Parse.create(message);
     $('#message').val('');
