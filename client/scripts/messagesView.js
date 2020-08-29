@@ -8,10 +8,13 @@ var MessagesView = {
   },
 
   renderMessage: function(message) {
-    console.log(message);
-    MessagesView.$chats.append('<div></div>');
-    MessagesView.$chats.append(message.username);
-    MessagesView.$chats.append(message.username);
+    //make use of the MessageView.render()
+    var newMessage = MessageView.render({username: message.username, text: message.text});
+    // MessagesView.$chats.append('<div></div>');
+    // MessagesView.$chats.append(message.username);
+    // MessagesView.$chats.append(message.text);
+    $(newMessage).appendTo(MessagesView.$chats);
+    // MessagesView.$chats.appendTo(newMessage);
   },
 
   render: function() {
