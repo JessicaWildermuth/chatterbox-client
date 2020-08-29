@@ -26,16 +26,4 @@ var MessagesView = {
 
   },
 
-  encodeHTML: function(string) {
-    return string.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/>/g, '&gt;').replace(/'/g, '&#x27;');
-  }
-
 };
-
-
-// if (s==='') return '_';
-
-
-//the call endcomeHTML with the message.text value
-// return of that function call should be set to a variable
-//instead of setting text: message.text , we would set it to our new variable

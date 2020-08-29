@@ -20,19 +20,34 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       console.log(data.results);
-      data.results.forEach(x => { MessagesView.renderMessage(x); });
+      //take data results array  and filter out any messageobj that do not contain a message
+      var filteredMessages = data.results.filter(messageObj => messageObj.text);
+      filteredMessages.forEach(x => { MessagesView.renderMessage(x); });
       // examine the response from the server request:
-      console.log(data);
       //check if data.results for a roomname (does it have one)
-      data.results.forEach(messageObj => {
+      filteredMessages.forEach(messageObj => {
         if (messageObj.roomname) {
           RoomsView.renderRoom(messageObj);
         }
       });
+
+      filteredMessages.forEach(messageObj => {
+        // var userName = App.decodeEntities(messageObj.username);
+        $('.username span').click(function() {
+          console.log(('Click Works'));
+        });
+      });
+
       //if it has one, call RoomsView.renderRoom('data roomname')
       callback();
     });
   },
+
+  // decodeEntities: function(encodedString) {
+  //   var textArea = document.createElement('textarea');
+  //   textArea.innerHTML = encodedString;
+  //   return textArea.value;
+  // },
 
   startSpinner: function() {
     App.$spinner.show();
